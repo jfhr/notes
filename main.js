@@ -3,6 +3,12 @@ function onload() {
         let text = localStorage.getItem(i);
         addNote(text, false);
     }
+    
+    let searchContainer = document.getElementById("search-container");
+    searchContainer.addEventListener("input", oninputSearch);
+    
+    let newNote = document.getElementById("new-note");
+    newNote.addEventListener("keydown", onkeydownNewNote);
 }
 
 function onkeydownNewNote(event) {
@@ -53,3 +59,5 @@ function filterNotes(query) {
         }
     }
 }
+
+document.addEventListener( "DOMContentLoaded", onload, false );
