@@ -1,0 +1,39 @@
+body {
+    background-color: #242429;
+    color: rgb(227,227,227);
+
+    font-family: consolas, monospace;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.textinput {
+    background-color: #29292b;
+    border-color: transparent;
+    caret-color: rgb(198,198,198);
+    color: inherit;
+    font-family: inherit;
+    font-size: 120%;
+
+    width: 50%;
+}
+.textinput:focus {
+    border-bottom-color: fuchsia;
+    outline: none;
+    
+    width: 95%;
+}
+
+.note {
+    list-style: none;
+    margin-top: 1.5em;
+
+    width: 85%;
+
+    border: none;
+    border-bottom: 2px solid #29292b;
+}
