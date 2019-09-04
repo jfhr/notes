@@ -1,12 +1,24 @@
+let renderer;
+
+function getMarkedRenderer() {
+    const renderer = new marked.Renderer();
+    renderer.link = (href, title, text) => {
+        return `<a tabindex=-1 href=${href} title=${title}>${text}</a>`;
+    }
+    return renderer;
+}
+
 function onload() {
+    renderer = getMarkedRenderer();
+
     for (let i = 0; i < localStorage.length; i++) {
         let text = localStorage.getItem(i);
         addNote(text, false);
     }
-    
+
     let searchContainer = document.getElementById("search-container");
     searchContainer.addEventListener("input", oninputSearch);
-    
+
     let newNote = document.getElementById("new-note");
     newNote.addEventListener("keydown", onkeydownNewNote);
 }
@@ -40,7 +52,7 @@ function saveNote(text) {
 }
 
 function processNoteText(text) {
-    text = text.replace(/\n/g, "<br>");
+    text = marked(text, { renderer });
     return text;
 }
 
@@ -60,4 +72,4 @@ function filterNotes(query) {
     }
 }
 
-document.addEventListener( "DOMContentLoaded", onload, false );
+document.addEventListener("DOMContentLoaded", onload, false);

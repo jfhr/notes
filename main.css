@@ -5,6 +5,10 @@ body {
     font-family: consolas, monospace;
 }
 
+a {
+    color: rgb(111, 153, 245);
+}
+
 .center {
     margin-left: auto;
     margin-right: auto;
